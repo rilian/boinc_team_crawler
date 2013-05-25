@@ -6,7 +6,6 @@ projects:
   - url: http://server1.almeregrid.nl/testgrid/
   - url: http://burp.renderfarming.net/
   - url: http://casathome.ihep.ac.cn/
-  - url: http://www.chess960athome.org/alpha/
   - url: http://cpdnbeta.oerc.ox.ac.uk/
   - url: http://boinc.thesonntags.com/collatz/
   - url: http://aerospaceresearch.net/constellation/
