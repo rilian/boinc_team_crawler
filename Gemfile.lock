@@ -12,6 +12,7 @@ GEM
       multipart-post (~> 1.1)
     multipart-post (1.2.0)
     nokogiri (1.5.9)
+    sqlite3 (1.3.7)
 
 PLATFORMS
   ruby
@@ -20,3 +21,4 @@ DEPENDENCIES
   debugger
   faraday
   nokogiri
+  sqlite3
