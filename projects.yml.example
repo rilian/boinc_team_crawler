@@ -26,7 +26,6 @@ projects:
   - url: http://www.gpugrid.net/
   - url: http://registro.ibercivis.es/
   - url: http://falua.cesfelipesegundo.com/Ideologias/
-  - url: http://boinc.gorlaeus.net/
   - url: http://lhcathome2.cern.ch/test4theory/
   - url: http://lhcathomeclassic.cern.ch/sixtrack/
   - url: http://www.fti.dn.ua/magnetism/
@@ -58,7 +57,6 @@ projects:
   - url: http://dg.imp.kiev.ua/slinca/
   - url: http://volunteer.cs.und.edu/subset_sum/
   - url: http://sudoku.nctu.edu.tw/
-  - url: http://cbl-boinc-server2.cs.technion.ac.il/superlinkattechnion/
   - url: http://boinc.umiacs.umd.edu/
   - url: http://ec2-23-23-126-96.compute-1.amazonaws.com/pogs/
   - url: http://boinc.vgtu.lt/vtuathome/
