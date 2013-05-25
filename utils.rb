@@ -10,8 +10,9 @@
 def parse_crunchers(table, project_url)
   crunchers = []
   table.css('tr').each do |cruncher_row|
-    cruncher = Cruncher.new(project_url: project_url)
+    cruncher = Cruncher.new
     cruncher.project_url = project_url
+    cruncher.team_name = ''
 
     if cruncher_row.css('td').count > 0
       if cruncher_row.css('td')[0].css('a').count > 0
