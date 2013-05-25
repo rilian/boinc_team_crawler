@@ -47,14 +47,17 @@ end
 @crunchers = @crunchers.flatten
 
 @crunchers.each do |cruncher|
-  puts cruncher
-  @db.execute "INSERT INTO crunchers (user_id, name, project_url, team_name, country, credits) VALUES " +
-    "(#{cruncher.user_id}, " +
-    "'#{cruncher.name.gsub("'", '`')}', "+
-    "'#{cruncher.project_url}', " +
-    "'#{cruncher.team_name.gsub("'", '`')}', " +
-    "'#{cruncher.country}', " +
-    "'#{cruncher.credits}')"
+  begin
+    @db.execute "INSERT INTO crunchers (user_id, name, project_url, team_name, country, credits) VALUES " +
+      "(#{cruncher.user_id}, " +
+      "'#{cruncher.name.gsub("'", '`')}', "+
+      "'#{cruncher.project_url}', " +
+      "'#{cruncher.team_name.gsub("'", '`')}', " +
+      "'#{cruncher.country}', " +
+      "'#{cruncher.credits}')"
+  rescue Exception => e
+    puts "Error saving #{cruncher} database: #{e.message}"
+  end
 end
 
 puts "Failed projects #{@failed_projects.inspect}" if @failed_projects.count > 0
