@@ -2,10 +2,13 @@ require 'yaml'
 require 'debugger'
 require 'faraday'
 require 'nokogiri'
+require 'sqlite3'
 
 load 'config.rb'
 load 'cruncher.rb'
 load 'utils.rb'
+
+@crunchers = []
 
 @projects['projects'].each do |project|
   puts "Crawling Project #{project['url']}"
@@ -25,7 +28,7 @@ load 'utils.rb'
       tables = page.css('table')
       tables.each do |table|
         if table.to_s.include?('Name')
-          parse_crunchers(table)
+          @crunchers << parse_crunchers(table, project['url'])
         end
       end
     else
@@ -37,14 +40,13 @@ load 'utils.rb'
   rescue Exception => e
     puts "Error:\n\n#{e.message}\n\n#{e.backtrace}\n"
   end
+end
 
+@crunchers = @crunchers.flatten
 
-  #debugger
-
-  #puts '1'
-  # Delay before next project
-  # puts "Sleeping #{@settings['crawl_delay']} sec"
-  # sleep(@settings['crawl_delay'])
+@crunchers.each do |cruncher|
+  puts cruncher.inspect
+  # Insert into DB
 end
 
 puts 'Done'
