@@ -18,5 +18,5 @@ USERS_SEARCH_QUERY = "user_search.php?action=search&search_string=&country=#{@se
   country TEXT,
   credits TEXT
 );'
-@db.execute 'CREATE UNIQUE INDEX IF NOT EXISTS unique_user_id_project_url ON crunchers (user_id, project_url);'
+@db.execute 'CREATE UNIQUE INDEX IF NOT EXISTS unique_user_id_name_project_url ON crunchers (user_id, name, project_url);'
 @db.execute 'DELETE FROM crunchers;'

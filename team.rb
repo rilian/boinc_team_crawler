@@ -9,6 +9,7 @@ load 'cruncher.rb'
 load 'utils.rb'
 
 @crunchers = []
+@failed_projects = []
 
 @projects['projects'].each do |project|
   puts "Crawling Project #{project['url']}"
@@ -32,6 +33,7 @@ load 'utils.rb'
         end
       end
     else
+      @failed_projects << project['url']
       puts "Error getting #{search_url}"
       puts "Status #{response.status}"
       puts "Headers #{response.headers}"
@@ -54,5 +56,7 @@ end
     "'#{cruncher.country}', " +
     "'#{cruncher.credits}')"
 end
+
+puts "Failed projects #{@failed_projects.inspect}" if @failed_projects.count > 0
 
 puts 'Done'

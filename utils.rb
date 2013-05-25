@@ -18,7 +18,7 @@ def parse_crunchers(table, project_url)
       if cruncher_row.css('td')[0].css('a').count > 0
         # UserId and Name
         name_anchor = cruncher_row.css('td')[0].css('a').last
-        cruncher.user_id = name_anchor['href'].scan(/userid=([0-9]+)/).flatten[0]
+        cruncher.user_id = name_anchor['href'].scan(/userid=([0-9]+)/).flatten[0] || 0
         cruncher.name = name_anchor.children.to_s.force_encoding('UTF-8')
 
         # Team name
