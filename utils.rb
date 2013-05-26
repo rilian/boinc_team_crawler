@@ -25,7 +25,7 @@ def parse_crunchers(table, project_url)
 
         # Team name
         if cruncher_row.css('td')[1] && cruncher_row.css('td')[1].css('a').count > 0
-          cruncher.team_name = cruncher_row.css('td')[1].css('a').children.to_s.force_encoding('UTF-8')
+          cruncher.team_name = cruncher_row.css('td')[1].css('a').children.to_s
         end
 
         # Country
@@ -35,7 +35,8 @@ def parse_crunchers(table, project_url)
 
         # Credits
         if cruncher_row.css('td')[3]
-          cruncher.credits = cruncher_row.css('td')[3].children.to_s.gsub(',', '')
+          cruncher.credits = cruncher_row.css('td')[3].children.to_s
+          cruncher.credits = cruncher.credits.gsub(',', '').gsub('.', '')
         end
 
         if @settings['target_team'] != cruncher.team_name
